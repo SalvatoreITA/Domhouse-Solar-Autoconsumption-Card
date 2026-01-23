@@ -11,7 +11,9 @@ Una **Lovelace Card personalizzata** per Home Assistant che calcola e visualizza
 
 Dotata di animazioni, logica dinamica dei colori, icone personalizzabili e un editor visivo completo.
 
-![Anteprima Card](CARD.png)
+<div align="center">
+  <img src="card.gif" alt="Card Preview">
+</div>
 
 ---
 

@@ -361,5 +361,5 @@ window.customCards.push({
   name: "DomHouse Solar Autoconsumption Card",
   description: "Card con calcolo autoconsumo solare/batteria, multilingua, layout personalizzabile e supporto tap_action.",
   preview: true,
-  documentationURL: "https://github.com/tuo-repo/domhouse-solar-autoconsumption-card",
+  documentationURL: "https://github.com/SalvatoreITA/domhouse-solar-autoconsumption-card",
 });

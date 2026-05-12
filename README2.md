@@ -1,21 +1,8 @@
 # ☀️ DomHouse Solar Autoconsumption Card
 
-[![it](https://img.shields.io/badge/lang-it-green.svg)](https://github.com/SalvatoreITA/domhouse-solar-autoconsumption-card/blob/main/README_it.md)
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/SalvatoreITA/domhouse-solar-autoconsumption-card/blob/main/README.md)
-
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
-[![version](https://img.shields.io/badge/version-v1.0.0-blue.svg)]()
-[![maintainer](https://img.shields.io/badge/maintainer-Salvatore_Lentini_--_DomHouse.it-green.svg)](https://www.domhouse.it)
-
 Una **Lovelace Card personalizzata** per Home Assistant che calcola e visualizza automaticamente la percentuale di autoconsumo solare. 
 
 Dotata di animazioni, logica dinamica dei colori, icone personalizzabili e un editor visivo completo.
-
-<div align="center">
-  <img src="card.gif" alt="Card Preview">
-</div>
-
----
 
 ## ✨ Caratteristiche
 
@@ -27,19 +14,9 @@ Dotata di animazioni, logica dinamica dei colori, icone personalizzabili e un ed
 * **Colori e Icone Dinamiche:** 3 stati di personalizzazione (Basso, Medio, Alto) che cambiano dinamicamente in base alla percentuale di autoconsumo.
 * **Design Moderno:** Include un effetto "Shine" (riflesso animato) per rendere la tua dashboard unica.
 
----
-
 ## ⚙️ Installazione
 
-### 1. Tramite HACS (Consigliato)
-
-1. Vai su HACS > Frontend.
-2. Clicca i 3 puntini in alto a destra > **Custom repositories**.
-3. Inserisci l'URL di questa repository. https://github.com/SalvatoreITA/domhouse-solar-autoconsumption-card
-4. Categoria: **Lovelace**.
-5. Clicca **Add** e poi installa la card.
-
-### 2. Installazione Manuale
+### 1. Installazione Manuale
 
 1. Scarica il file `domhouse-solar-autoconsumption-card.js` da questo repository.
 2. Caricalo nella cartella `/config/www/` del tuo Home Assistant.
@@ -48,8 +25,6 @@ Dotata di animazioni, logica dinamica dei colori, icone personalizzabili e un ed
    * **URL:** `/local/domhouse-solar-autoconsumption-card.js`
    * **Tipo:** Modulo JavaScript
 5. Riavvia Home Assistant.
-
----
 
 ## 🛠️ Configurazione
 

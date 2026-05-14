@@ -7,7 +7,7 @@ Dotata di animazioni, logica dinamica dei colori, icone personalizzabili e un ed
 ## ✨ Caratteristiche
 
 * **Calcolo in tempo reale:** Confronta istantaneamente la produzione solare e il consumo della casa.
-* **Supporto Accumulo/Batteria:** Se hai una batteria, puoi aggiungere il sensore di scarica per calcolare il reale autoconsumo verde al 100%, anche di notte!
+* **Supporto Accumulo/Batteria:** Se hai una batteria, puoi aggiungere il sensore di scarica ( Accetta solo sensori positivi ) per calcolare il reale autoconsumo verde al 100%, anche di notte!
 * **Multilingua:** Supporta nativamente Italiano (IT) e Inglese (EN).
 * **Editor Visivo (UI):** Non è necessario scrivere codice YAML. Puoi configurare tutto comodamente dall'interfaccia grafica di Home Assistant.
 * **Layout Personalizzabile:** Modifica la grandezza del testo, delle icone e il padding della card.
@@ -62,8 +62,8 @@ card_padding: 10
 | Opzione | Tipo | Obbligatorio | Default | Descrizione |
 | :--- | :--- | :---: | :--- | :--- |
 | `type` | `string` | **Sì** | | Deve essere `custom:domhouse-solar-autoconsumption-card` |
-| `entity_production` | `string` | **Sì** | | L'ID dell'entità che misura la produzione dei pannelli in W o kW. |
-| `entity_consumption` | `string` | **Sì** | | L'ID dell'entità che misura il consumo totale della casa in W o kW. |
+| `entity_production` | `string` | **Sì** | | L'ID dell'entità che misura la produzione dei pannelli in W. |
+| `entity_consumption` | `string` | **Sì** | | L'ID dell'entità che misura il consumo totale della casa in W. |
 | `entity_battery` | `string` | No | | L'ID dell'entità che misura la **scarica** della batteria. |
 | `name` | `string` | No | | Il titolo mostrato in cima alla card. |
 | `language` | `string` | No | `it` | Lingua del testo: `it` (Italiano) o `en` (Inglese). |
@@ -79,7 +79,7 @@ card_padding: 10
 
 ## 🖱️ Azioni al Click (Tap Action & Browser Mod)
 
-Dalla versione **v3.1**, la card supporta nativamente l'opzione `tap_action` standard di Home Assistant.
+Supporto nativo dell'opzione `tap_action` standard di Home Assistant.
 
 Di default, cliccando sulla card si aprirà la finestra "more-info" relativa all'entità del **Consumo (Casa)**. 
 Tuttavia, puoi personalizzare questo comportamento per aprire altre plance, richiamare servizi, o mostrare popup avanzati tramite integrazioni come **browser_mod**.

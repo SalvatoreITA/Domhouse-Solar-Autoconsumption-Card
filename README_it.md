@@ -20,7 +20,7 @@ Dotata di animazioni, logica dinamica dei colori, icone personalizzabili e un ed
 ## ✨ Caratteristiche
 
 * **Calcolo in tempo reale:** Confronta istantaneamente la produzione solare e il consumo della casa.
-* **Supporto Accumulo/Batteria:** Se hai una batteria, puoi aggiungere il sensore di scarica per calcolare il reale autoconsumo verde al 100%, anche di notte!
+* **Supporto Accumulo/Batteria:** Se hai una batteria, puoi aggiungere il sensore di scarica per calcolare il reale autoconsumo verde al 100%, anche di notte! ( Accetta Solo Valori Positivi )
 * **Multilingua:** Supporta nativamente Italiano (IT) e Inglese (EN).
 * **Editor Visivo (UI):** Non è necessario scrivere codice YAML. Puoi configurare tutto comodamente dall'interfaccia grafica di Home Assistant.
 * **Layout Personalizzabile:** Modifica la grandezza del testo, delle icone e il padding della card.

@@ -88,8 +88,8 @@ card_padding: 10
 | Option | Type | Required | Default | Description |
 | :--- | :--- | :---: | :--- | :--- |
 | `type` | `string` | **Yes** | | Must be `custom:domhouse-solar-autoconsumption-card` |
-| `entity_production` | `string` | **Yes** | | The ID of the entity measuring solar panel production in W or kW. |
-| `entity_consumption` | `string` | **Yes** | | The ID of the entity measuring total house consumption in W or kW. |
+| `entity_production` | `string` | **Yes** | | The ID of the entity measuring solar panel production in W |
+| `entity_consumption` | `string` | **Yes** | | The ID of the entity measuring total house consumption in W |
 | `entity_battery` | `string` | No | | The ID of the entity measuring battery **discharge**. |
 | `name` | `string` | No | | The title displayed at the top of the card. |
 | `language` | `string` | No | `it` | Text language: `it` (Italian) or `en` (English). |

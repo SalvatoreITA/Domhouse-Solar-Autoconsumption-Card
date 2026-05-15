@@ -73,7 +73,7 @@ entity_consumption: sensor.consumo_casa_potenza_attuale
 # entity_battery: sensor.batteria_scarica_positiva
 # entity_battery_neg: sensor.batteria_scarica_negativa
 # entity_battery_bidir: sensor.batteria_bidirezionale_neg
-entity_battery_bidir: sensor.batteria_bidirezionale
+entity_battery_bidir_pos: sensor.batteria_bidirezionale_pos
 # Opzionali - Personalizzazione Stili
 color_low: "#F44336"
 color_med: "#FF9800"

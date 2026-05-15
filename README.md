@@ -69,10 +69,11 @@ type: custom:domhouse-solar-autoconsumption-card
 name: "My Self-Consumption"
 entity_production: sensor.solar_production_watt
 entity_consumption: sensor.house_consumption_watt
-# Choose ONE of the 3 battery sensors based on your inverter:
-# entity_battery: sensor.battery_discharge_positive
-# entity_battery_neg: sensor.battery_discharge_negative
-entity_battery_bidir: sensor.battery_bidirectional
+# Choose ONE of the 4 battery sensors based on your inverter:
+# entity_battery: sensor.batteria_scarica_positiva
+# entity_battery_neg: sensor.batteria_scarica_negativa
+# entity_battery_bidir: sensor.batteria_bidirezionale_neg
+entity_battery_bidir_pos: sensor.batteria_bidirezionale_pos
 # Optional - Style Customization
 color_low: "#F44336"
 color_med: "#FF9800"
@@ -94,9 +95,10 @@ border_radius: 10
 | `type` | `string` | **Yes** | | Must be `custom:domhouse-solar-autoconsumption-card` |
 | `entity_production` | `string` | **Yes** | | The ID of the entity measuring solar panel production in W. |
 | `entity_consumption` | `string` | **Yes** | | The ID of the entity measuring total house consumption in W. |
-| `entity_battery` | `string` | No | | Battery sensor that records discharge in **positive** (e.g., 500W). |
-| `entity_battery_neg` | `string` | No | | Battery sensor that records discharge in **negative** (e.g., -500W). |
-| `entity_battery_bidir`| `string` | No | | **Bidirectional** battery sensor (charge = positive, discharge = negative). |
+| `entity_battery` | `string` | No | | Battery discharge sensor **positive only** (e.g., 500W). |
+| `entity_battery_neg` | `string` | No | | Battery discharge sensor **negative only** (e.g., -500W). |
+| `entity_battery_bidir`| `string` | No | | **Bidirectional** sensor (discharge = negative, charge = positive). |
+| `entity_battery_bidir_pos`| `string` | No | | **Bidirectional** sensor (discharge = positive, charge = negative). |
 | `name` | `string` | No | | The title displayed at the top of the card. |
 | `language` | `string` | No | `it` | Text language: `it` (Italian) or `en` (English). |
 | `color_low` | `string` | No | `#F44336` | Background color when self-consumption is between 0% and 30%. |

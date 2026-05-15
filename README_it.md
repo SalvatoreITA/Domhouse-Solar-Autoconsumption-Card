@@ -65,7 +65,6 @@ Questa card supporta pienamente l'editor visivo.
 Se preferisci usare il codice YAML:
 
 ```yaml
-```yaml
 type: custom:domhouse-solar-autoconsumption-card
 name: "Il mio Autoconsumo"
 entity_production: sensor.fotovoltaico_potenza_attuale

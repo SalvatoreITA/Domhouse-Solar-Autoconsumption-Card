@@ -11,12 +11,6 @@ Una **Lovelace Card personalizzata** per Home Assistant che calcola e visualizza
 
 Dotata di animazioni, logica dinamica dei colori, icone personalizzabili e un editor visivo completo.
 
-<div align="center">
-  <img src="card.gif" alt="Card Preview">
-</div>
-
----
-
 ## ✨ Caratteristiche
 
 * **Calcolo in tempo reale:** Confronta istantaneamente la produzione solare e il consumo della casa.
@@ -27,19 +21,9 @@ Dotata di animazioni, logica dinamica dei colori, icone personalizzabili e un ed
 * **Colori e Icone Dinamiche:** 3 stati di personalizzazione (Basso, Medio, Alto) che cambiano dinamicamente in base alla percentuale di autoconsumo.
 * **Design Moderno:** Include un effetto "Shine" (riflesso animato) per rendere la tua dashboard unica.
 
----
-
 ## ⚙️ Installazione
 
-### 1. Tramite HACS (Consigliato)
-
-1. Vai su HACS > Frontend.
-2. Clicca i 3 puntini in alto a destra > **Custom repositories**.
-3. Inserisci l'URL di questa repository. https://github.com/SalvatoreITA/domhouse-solar-autoconsumption-card
-4. Categoria: **Lovelace**.
-5. Clicca **Add** e poi installa la card.
-
-### 2. Installazione Manuale
+### 1. Installazione Manuale
 
 1. Scarica il file `domhouse-solar-autoconsumption-card.js` da questo repository.
 2. Caricalo nella cartella `/config/www/` del tuo Home Assistant.
@@ -86,8 +70,6 @@ icon_size: 26
 card_padding: 10
 border_radius: 10
 ```
-## 📚 Opzioni di Configurazione
-
 ## 📚 Opzioni di Configurazione
 
 | Opzione | Tipo | Obbligatorio | Default | Descrizione |

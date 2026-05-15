@@ -88,8 +88,6 @@ border_radius: 10
 ```
 ## 📚 Opzioni di Configurazione
 
-## 📚 Opzioni di Configurazione
-
 | Opzione | Tipo | Obbligatorio | Default | Descrizione |
 | :--- | :--- | :---: | :--- | :--- |
 | `type` | `string` | **Sì** | | Deve essere `custom:domhouse-solar-autoconsumption-card` |

@@ -151,7 +151,7 @@ tap_action:
 La card calcola la percentuale di "Energia Pulita" applicando automaticamente questa logica:
 
 1. Recupera i valori di **Produzione** (Fotovoltaico) e **Consumo** (Casa).
-2. **Gestione Batteria Intelligente:** Se hai configurato un sensore batteria negativo o bidirezionale, la card isola e converte automaticamente i valori di scarica in positivi per sommarli alla produzione solare, ignorando i cicli di ricarica.
+2. **Gestione Batteria Intelligente:** La card supporta 4 tipi di sensori. Se usi un sensore bidirezionale, la card isola automaticamente solo la fase di scarica (ignorando quando la batteria carica) e converte i valori necessari in positivi per sommarli alla produzione solare.
 3. Calcola l'Energia Pulita totale a disposizione: `Produzione + Scarica Batteria`.
 4. Calcola l'Energia Pulita effettivamente utilizzata per la casa: `Min(Energia Pulita Totale, Consumo)`.
 5. Calcola la Percentuale finale rispetto al consumo totale.

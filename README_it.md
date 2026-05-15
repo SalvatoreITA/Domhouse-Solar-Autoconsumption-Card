@@ -69,9 +69,10 @@ type: custom:domhouse-solar-autoconsumption-card
 name: "Il mio Autoconsumo"
 entity_production: sensor.fotovoltaico_potenza_attuale
 entity_consumption: sensor.consumo_casa_potenza_attuale
-# Scegli UNO dei 3 sensori batteria in base al tuo inverter:
+# Scegli UNO dei 4 sensori batteria in base al tuo inverter:
 # entity_battery: sensor.batteria_scarica_positiva
 # entity_battery_neg: sensor.batteria_scarica_negativa
+# entity_battery_bidir: sensor.batteria_bidirezionale_neg
 entity_battery_bidir: sensor.batteria_bidirezionale
 # Opzionali - Personalizzazione Stili
 color_low: "#F44336"

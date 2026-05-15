@@ -20,7 +20,7 @@ Dotata di animazioni, logica dinamica dei colori, icone personalizzabili e un ed
 ## ✨ Caratteristiche
 
 * **Calcolo in tempo reale:** Confronta istantaneamente la produzione solare e il consumo della casa.
-* **Supporto Accumulo/Batteria:** Se hai una batteria, puoi aggiungere il sensore di scarica per calcolare il reale autoconsumo verde al 100%, anche di notte! ( Accetta Solo Valori Positivi )
+* **Supporto Accumulo/Batteria Universale:** Supporta qualsiasi tipo di sensore batteria (solo positivo, solo negativo o bidirezionale). La card converte automaticamente i valori in scarica per un calcolo perfetto, anche di notte!
 * **Multilingua:** Supporta nativamente Italiano (IT) e Inglese (EN).
 * **Editor Visivo (UI):** Non è necessario scrivere codice YAML. Puoi configurare tutto comodamente dall'interfaccia grafica di Home Assistant.
 * **Layout Personalizzabile:** Modifica la grandezza del testo, delle icone e il padding della card.
@@ -65,11 +65,15 @@ Questa card supporta pienamente l'editor visivo.
 Se preferisci usare il codice YAML:
 
 ```yaml
+```yaml
 type: custom:domhouse-solar-autoconsumption-card
 name: "Il mio Autoconsumo"
 entity_production: sensor.fotovoltaico_potenza_attuale
 entity_consumption: sensor.consumo_casa_potenza_attuale
-entity_battery: sensor.batteria_scarica_watt
+# Scegli UNO dei 3 sensori batteria in base al tuo inverter:
+# entity_battery: sensor.batteria_scarica_positiva
+# entity_battery_neg: sensor.batteria_scarica_negativa
+entity_battery_bidir: sensor.batteria_bidirezionale
 # Opzionali - Personalizzazione Stili
 color_low: "#F44336"
 color_med: "#FF9800"
@@ -77,19 +81,24 @@ color_high: "#4CAF50"
 icon_low: "mdi:alert-circle"
 icon_med: "mdi:leaf-maple"
 icon_high: "mdi:leaf"
-# Opzionali - Dimensioni
+# Opzionali - Dimensioni e Layout
 font_size: 14
 icon_size: 26
 card_padding: 10
+border_radius: 10
 ```
+## 📚 Opzioni di Configurazione
+
 ## 📚 Opzioni di Configurazione
 
 | Opzione | Tipo | Obbligatorio | Default | Descrizione |
 | :--- | :--- | :---: | :--- | :--- |
 | `type` | `string` | **Sì** | | Deve essere `custom:domhouse-solar-autoconsumption-card` |
-| `entity_production` | `string` | **Sì** | | L'ID dell'entità che misura la produzione dei pannelli in W o kW. |
-| `entity_consumption` | `string` | **Sì** | | L'ID dell'entità che misura il consumo totale della casa in W o kW. |
-| `entity_battery` | `string` | No | | L'ID dell'entità che misura la **scarica** della batteria. |
+| `entity_production` | `string` | **Sì** | | L'ID dell'entità che misura la produzione dei pannelli in W. |
+| `entity_consumption` | `string` | **Sì** | | L'ID dell'entità che misura il consumo totale della casa in W. |
+| `entity_battery` | `string` | No | | Sensore batteria che segna la scarica in **positivo** (es. 500W). |
+| `entity_battery_neg` | `string` | No | | Sensore batteria che segna la scarica in **negativo** (es. -500W). |
+| `entity_battery_bidir`| `string` | No | | Sensore batteria **bidirezionale** (carica = positivo, scarica = negativo). |
 | `name` | `string` | No | | Il titolo mostrato in cima alla card. |
 | `language` | `string` | No | `it` | Lingua del testo: `it` (Italiano) o `en` (Inglese). |
 | `color_low` | `string` | No | `#F44336` | Colore di sfondo quando l'autoconsumo è tra 0% e 30%. |
@@ -101,10 +110,9 @@ card_padding: 10
 | `font_size` | `number` | No | `14` | Dimensione del testo in pixel. |
 | `icon_size` | `number` | No | `26` | Dimensione dell'icona in pixel. |
 | `card_padding` | `number` | No | `10` | Spazio interno della card (padding) in pixel. |
+| `border_radius` | `number` | No | `10` | Rotondità dei bordi della card in pixel. |
 
 ## 🖱️ Azioni al Click (Tap Action & Browser Mod)
-
-Dalla versione **v3.1**, la card supporta nativamente l'opzione `tap_action` standard di Home Assistant.
 
 Di default, cliccando sulla card si aprirà la finestra "more-info" relativa all'entità del **Consumo (Casa)**. 
 Tuttavia, puoi personalizzare questo comportamento per aprire altre plance, richiamare servizi, o mostrare popup avanzati tramite integrazioni come **browser_mod**.
@@ -122,7 +130,7 @@ type: custom:domhouse-solar-autoconsumption-card
 name: Autoconsumo Totale
 entity_production: sensor.produzione_fotovoltaico_watt
 entity_consumption: sensor.consumo_casa_watt
-entity_battery: sensor.batteria_scarica_watt
+entity_battery_bidir: sensor.batteria_inverter_watt
 language: it
 # --- Configurazione Tap Action ---
 tap_action:
@@ -135,18 +143,19 @@ tap_action:
         type: entities
         entities:
           - sensor.produzione_fotovoltaico_watt
-          - sensor.batteria_scarica_watt
+          - sensor.batteria_inverter_watt
           - sensor.consumo_casa_watt
 ```
 
-## 📐 Come funziona il calcolo?
+## 📐 Come funziona il calcolo e la batteria?
 
 La card calcola la percentuale di "Energia Pulita" applicando automaticamente questa logica:
 
-1.  Recupera i valori di **Produzione** (Fotovoltaico), **Consumo** (Casa) e **Batteria in Scarica** (Opzionale).
-2.  Calcola l'Energia Pulita totale a disposizione: `Produzione + Batteria`.
-3.  Calcola l'Energia Pulita effettivamente utilizzata per la casa: `Min(Energia Pulita Totale, Consumo)`.
-4.  Calcola la Percentuale finale rispetto al consumo totale.
+1. Recupera i valori di **Produzione** (Fotovoltaico) e **Consumo** (Casa).
+2. **Gestione Batteria Intelligente:** Se hai configurato un sensore batteria negativo o bidirezionale, la card isola e converte automaticamente i valori di scarica in positivi per sommarli alla produzione solare, ignorando i cicli di ricarica.
+3. Calcola l'Energia Pulita totale a disposizione: `Produzione + Scarica Batteria`.
+4. Calcola l'Energia Pulita effettivamente utilizzata per la casa: `Min(Energia Pulita Totale, Consumo)`.
+5. Calcola la Percentuale finale rispetto al consumo totale.
 
 **Esempio Pratico 1 (Giorno, tanto sole):**
 * Produzione: **2000 W**
@@ -156,7 +165,7 @@ La card calcola la percentuale di "Energia Pulita" applicando automaticamente qu
 
 **Esempio Pratico 2 (Sera/Notte, supporto della batteria):**
 * Produzione: **0 W**
-* Batteria in Scarica: **500 W**
+* Batteria (Sensore Bidirezionale): **-500 W** *(La card lo legge automaticamente come +500 W in scarica)*
 * Consumo: **500 W**
 * **Risultato:** Stai coprendo il **100%** del tuo consumo in modo *green* grazie all'energia immagazzinata nella batteria!
 

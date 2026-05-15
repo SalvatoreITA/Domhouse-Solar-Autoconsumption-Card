@@ -20,7 +20,7 @@ Dotata di animazioni, logica dinamica dei colori, icone personalizzabili e un ed
 ## ✨ Caratteristiche
 
 * **Calcolo in tempo reale:** Confronta istantaneamente la produzione solare e il consumo della casa.
-* **Supporto Accumulo/Batteria Universale:** Supporta qualsiasi tipo di sensore batteria (solo positivo, solo negativo o bidirezionale). La card converte automaticamente i valori in scarica per un calcolo perfetto, anche di notte!
+* **Supporto Accumulo/Batteria Universale** Supporta 4 tipi di sensori (solo positivo, solo negativo o bidirezionale in entrambe le logiche). La card converte automaticamente i valori in scarica per un calcolo perfetto, anche di notte!
 * **Multilingua:** Supporta nativamente Italiano (IT) e Inglese (EN).
 * **Editor Visivo (UI):** Non è necessario scrivere codice YAML. Puoi configurare tutto comodamente dall'interfaccia grafica di Home Assistant.
 * **Layout Personalizzabile:** Modifica la grandezza del testo, delle icone e il padding della card.
@@ -93,9 +93,10 @@ border_radius: 10
 | `type` | `string` | **Sì** | | Deve essere `custom:domhouse-solar-autoconsumption-card` |
 | `entity_production` | `string` | **Sì** | | L'ID dell'entità che misura la produzione dei pannelli in W. |
 | `entity_consumption` | `string` | **Sì** | | L'ID dell'entità che misura il consumo totale della casa in W. |
-| `entity_battery` | `string` | No | | Sensore batteria che segna la scarica in **positivo** (es. 500W). |
-| `entity_battery_neg` | `string` | No | | Sensore batteria che segna la scarica in **negativo** (es. -500W). |
-| `entity_battery_bidir`| `string` | No | | Sensore batteria **bidirezionale** (carica = positivo, scarica = negativo). |
+| `entity_battery` | `string` | No | | Sensore scarica batteria **solo positivo** (es. 500W). |
+| `entity_battery_neg` | `string` | No | | Sensore scarica batteria **solo negativo** (es. -500W). |
+| `entity_battery_bidir`| `string` | No | | Sensore **bidirezionale** (scarica = negativo, carica = positivo). |
+| `entity_battery_bidir_pos`| `string` | No | | Sensore **bidirezionale** (scarica = positivo, carica = negativo). |
 | `name` | `string` | No | | Il titolo mostrato in cima alla card. |
 | `language` | `string` | No | `it` | Lingua del testo: `it` (Italiano) o `en` (Inglese). |
 | `color_low` | `string` | No | `#F44336` | Colore di sfondo quando l'autoconsumo è tra 0% e 30%. |
